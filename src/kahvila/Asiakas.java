@@ -1,4 +1,5 @@
 package kahvila;
+import java.util.*;
 public class Asiakas {
     private int raha;
     public int Asiakas(int raha) {
