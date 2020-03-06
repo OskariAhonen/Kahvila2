@@ -9,11 +9,11 @@ public class Kahvila {
     public Kahvila() {
         this.tuotelista = new ArrayList<>();
     }
-public List<Tuote> getTuotelista() {
+public List<Tuote> getTuote() {
         return tuotelista;
     }
-    public void LisaaTuote(Tuote t){
-    tuotelista.add(t);
+    public void LisaaTuote(Tuote tuote){
+    tuotelista.add(tuote);
     }
 
 
