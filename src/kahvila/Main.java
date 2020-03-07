@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        
+
         Scanner ok = new Scanner(System.in);
         Kahvila kahvila = new Kahvila();
         while (true) {
@@ -23,11 +23,24 @@ public class Main {
                     System.out.println("Anna komento: ");
                     String komento = ok.nextLine();
                     if (komento.equals("Lisää")) {
-                        lisääTuote();
+                        System.out.print("Anna tuotteen nimi: ");
+                        String sana = ok.nextLine();
+                        System.out.print("Anna tuotteen hinta: ");
+                        int hinta = Integer.parseInt(ok.nextLine());
+                        Tuote ast = new Tuote(sana, hinta);
+                        tuotteet.LisaaTuote(ast);
+                        for (Tuote kaynti: kahvila.getTuote()) {
+                            System.out.println(kaynti.getNimi() + ", hinta " + kaynti.getHinta() + " e");
+                        }
                     } else if (komento.equals("Poista")) {
                         System.out.println("Minkä tuotteen haluat poistaa?");
-                        for (Tuote a: tuotelista) {
-                            System.out.println(a.getNimi() + ", hinta " + a.getHinta() + " e");
+                        for (Tuote g: kahvila.getTuote()) {
+                            System.out.println(g.getNimi() + ", hinta " + g.getHinta() + " e");
+                        }
+                    }
+                    else  if (komento.equals("Listaa")) {
+                        for (Tuote abc: kahvila.getTuote()) {
+                        System.out.println(abc.getNimi());
                         }
                     }
                 }
@@ -36,17 +49,7 @@ public class Main {
 
         }
     }
-    public static void lisääTuote() {
-        Kahvila kahvila = new Kahvila();
-        Scanner ok = new Scanner(System.in);
-        System.out.print("Anna tuotteen nimi: ");
-        String sana = ok.nextLine();
-        System.out.print("Anna tuotteen hinta: ");
-        int hinta = Integer.parseInt(ok.nextLine());
-        Tuote a = new Tuote(sana, hinta);
-        tuotelista.LisaaTuote(a);
-        System.out.println(a.getNimi());
-    }
+
 
 }
 

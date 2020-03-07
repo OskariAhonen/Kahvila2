@@ -1,23 +1,19 @@
 package kahvila;
 
 
-import javax.swing.*;
+
 import java.util.*;
 
 public class Kahvila {
-    private List<Tuote> tuotelista;
+    private List<Tuote> tuotteet;
     public Kahvila() {
-        this.tuotelista = new ArrayList<>();
+        this.tuotteet = new ArrayList<>();
     }
 public List<Tuote> getTuote() {
-        return tuotelista;
+        return tuotteet;
     }
-    public void LisaaTuote(Tuote tuote){
-    tuotelista.add(tuote);
+    public void LisaaTuote(Tuote c){
+    tuotteet.add(c);
     }
-
-
-
-
 
 }
