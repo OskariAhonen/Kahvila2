@@ -15,5 +15,8 @@ public List<Tuote> getTuote() {
     public void LisaaTuote(Tuote c){
     tuotteet.add(c);
     }
+    public void poistaTuote(int b) {
+        tuotteet.remove(b);
+    }
 
 }
