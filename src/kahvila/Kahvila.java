@@ -16,7 +16,10 @@ public List<Tuote> getTuote() {
     tuotteet.add(c);
     }
     public void poistaTuote(int b) {
-        tuotteet.remove(b);
+    tuotteet.remove(b);
     }
+public int getIndex (String poisto) {
+       return tuotteet.indexOf(poisto);
+}
 
 }

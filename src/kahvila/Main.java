@@ -3,6 +3,7 @@ package kahvila;
 
 
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 
@@ -32,39 +33,33 @@ public class Main {
                         int hinta = Integer.parseInt(ok.nextLine());
                         Tuote ast = new Tuote(sana, hinta);
                         tuotteet.LisaaTuote(ast);
-                        for (Tuote kaynti: tuotteet.getTuote()) {
+                        for (Tuote kaynti : tuotteet.getTuote()) {
                             System.out.println(kaynti.getNimi() + ", hinta " + kaynti.getHinta() + " e");
                         }
                     } else if (komento.equals("Poista")) {
                         System.out.println("Minkä tuotteen seuraaavista tuotteista haluat poistaa?");
-                        for (Tuote a: tuotteet.getTuote()) {
-                            System.out.println(a.getNimi() + ", hinta " + a.getHinta() + " e");
-                        }
                         String poisto = ok.nextLine();
-                        for (Tuote a: tuotteet.getTuote()) {
-
+                        for (Tuote a : tuotteet.getTuote()) {
                             if (a.equals(poisto)) {
-                                int b = 0;
-                                tuotteet.poistaTuote(b);
-                                b = b + 1;
+                                int index = tuotteet.getIndex(poisto);
+                                System.out.println(index);
+                                tuotteet.poistaTuote(index);
                             }
+                        }}
+                        if (komento.equals("Listaa")) {
+                            System.out.println("Tässä tämän hetkiset tuotteet: ");
+                            for (Tuote a : tuotteet.getTuote()) {
+                                System.out.println(a.getNimi() + ", hinta " + a.getHinta() + " e");
+                            }
+                        }
 
-                        }
-                    }
-                    else  if (komento.equals("Listaa")) {
-                        System.out.println("Tässä tämän hetkiset tuotteet: ");
-                        for (Tuote a: tuotteet.getTuote()) {
-                            System.out.println(a.getNimi() + ", hinta " + a.getHinta() + " e");
-                        }
-                    }
                 }
+
+
             }
-
-
         }
+
+
     }
-
-
 }
-
 
