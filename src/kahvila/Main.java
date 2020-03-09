@@ -3,6 +3,7 @@ package kahvila;
 
 
 
+import javax.sound.midi.Soundbank;
 import java.sql.SQLOutput;
 import java.util.*;
 
@@ -39,13 +40,18 @@ public class Main {
                     } else if (komento.equals("Poista")) {
                         System.out.println("Minkä tuotteen seuraaavista tuotteista haluat poistaa?");
                         String poisto = ok.nextLine();
+                        int b = 0;
                         for (Tuote a : tuotteet.getTuote()) {
-                            if (a.equals(poisto)) {
-                                int index = tuotteet.getIndex(poisto);
-                                System.out.println(index);
-                                tuotteet.poistaTuote(index);
+
+
+                            if (poisto.contains(a.getNimi())) {
+                                tuotteet.poistaTuote(b);
+
                             }
-                        }}
+                            b = b + 1;
+                        }
+                    }
+
                         if (komento.equals("Listaa")) {
                             System.out.println("Tässä tämän hetkiset tuotteet: ");
                             for (Tuote a : tuotteet.getTuote()) {
@@ -53,13 +59,13 @@ public class Main {
                             }
                         }
 
+
+
+
                 }
-
-
             }
+
+
         }
-
-
     }
 }
-
