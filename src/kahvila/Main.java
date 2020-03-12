@@ -41,12 +41,10 @@ public class Main {
                     } else if (komento.equals("Poista")) {
                         System.out.println("Minkä tuotteen seuraaavista tuotteista haluat poistaa?");
                         String poisto = ok.nextLine();
-                        while (iterator.hasNext()){
-                            if (iterator.equals(poisto)) {
-                            iterator.remove();
-                            }
-                        }
-
+                       for (Tuote a : kahvila.tuotteet) {
+                           while (iterator.hasNext()) {
+                           }
+                       }
 }
 
                         if (komento.equals("Listaa")) {
