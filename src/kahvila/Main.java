@@ -4,6 +4,7 @@ package kahvila;
 
 
 import javax.sound.midi.Soundbank;
+import javax.swing.text.html.HTMLDocument;
 import java.sql.SQLOutput;
 import java.util.*;
 
@@ -15,7 +16,7 @@ public class Main {
         Kahvila kahvila = new Kahvila();
         Kahvila tuotteet = new Kahvila();
         Scanner ok = new Scanner(System.in);
-
+        Iterator iterator = kahvila.tuotteet.iterator();
         while (true) {
             System.out.print("Anna käyttäjätunnus: ");
             String tunnus = ok.nextLine();
@@ -40,17 +41,13 @@ public class Main {
                     } else if (komento.equals("Poista")) {
                         System.out.println("Minkä tuotteen seuraaavista tuotteista haluat poistaa?");
                         String poisto = ok.nextLine();
-                        int b = 0;
-                        for (Tuote a : tuotteet.getTuote()) {
-
-
-                            if (poisto.contains(a.getNimi())) {
-                                tuotteet.poistaTuote(b);
-
+                        while (iterator.hasNext()){
+                            if (iterator.equals(poisto)) {
+                            iterator.remove();
                             }
-                            b = b + 1;
                         }
-                    }
+
+}
 
                         if (komento.equals("Listaa")) {
                             System.out.println("Tässä tämän hetkiset tuotteet: ");

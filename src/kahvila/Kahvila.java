@@ -2,10 +2,13 @@ package kahvila;
 
 
 
+
+
 import java.util.*;
 
 public class Kahvila {
-    private List<Tuote> tuotteet;
+
+    public List<Tuote> tuotteet;
 
     public Kahvila() {
         this.tuotteet = new ArrayList<>();
