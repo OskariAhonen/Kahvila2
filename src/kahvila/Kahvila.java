@@ -25,14 +25,21 @@ public class Kahvila {
 
     public void poistaTuote(String poistettava) {
 
-        int indeksi = 0;
+        int indeksi = -1;
         for (Tuote tuote: tuotteet) {
             if (tuote.getNimi().equals(poistettava)) {
                 indeksi = tuotteet.indexOf(tuote);
-            }
-        }
-        tuotteet.remove(indeksi);
 
+            }
+
+        }
+
+        if (indeksi == -1) {
+            System.out.println("Tuotetta ei ole");
+        } else {
+            System.out.println("Tuote poistettiin!");
+            tuotteet.remove(indeksi);
+        }
 
     }
 

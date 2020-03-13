@@ -18,12 +18,12 @@ public class Main {
         Scanner ok = new Scanner(System.in);
 
         while (true) {
-            kysySammutus();
-                System.out.print("Anna tunnus: ");
-                String tunnus = ok.nextLine();
-                System.out.print("Anna salasana: ");
-                String salasana = ok.nextLine();
 
+
+            System.out.print("Anna tunnus: ");
+            String tunnus = ok.nextLine();
+            System.out.print("Anna salasana: ");
+            String salasana = ok.nextLine();
 
             if (tunnus.equals("omistaja") && salasana.equals("joitakin")) {
                 System.out.println("Tervetuloa omistaja!");
@@ -51,17 +51,15 @@ public class Main {
                     }
 
                     else if (komento.equals("poista")) {
-                        System.out.println("Minkä tuotteen seuraaavista tuotteista haluat poistaa?");
+                        System.out.print("Minkä tuotteen haluat poistaa: ");
                         String poisto = ok.nextLine();
                         kahvila.poistaTuote(poisto);
 
-                        System.out.println("Tässä tämän hetkiset tuotteet: ");
-                        for (Tuote a : kahvila.getTuote()) {
-                            System.out.println(a.getNimi() + ", hinta " + a.getHinta() + " e");
-                        }
+
                     }
                     else if (komento.equals("kirjaudu ulos")) {
                         System.out.println("kirjaudutaan ulos...");
+                        kysySammutus();
                         break;
                     }
 
@@ -75,13 +73,13 @@ public class Main {
                 Asiakas asiakas = new Asiakas(100);
                 System.out.println("Olet kirjautunut asiakkaana!");
                 while (true) {
-                    System.out.println("Komennot: osta, saldo, kirjaudu ulos");
+                    System.out.println("Komennot: osta, saldo, kirjaudu ulos, tuotteet");
                     String komento = kysyKomento();
                     if (komento.equals("osta")) {
                         System.out.println("Sinulla on käytettävissäsi " + asiakas.tulostaRaha());
                         System.out.println("Tämän henkiset tuotteemme: ");
                         for (Tuote a : kahvila.getTuote()) {
-                            System.out.println(a.getNimi() + ", " + a.getHinta());
+                            System.out.println(a.getNimi() + ", " + a.getHinta() + "€");
                         }
                         System.out.print("Minkä haluat ostaa: ");
                         String ostettava = ok.nextLine();
@@ -92,13 +90,21 @@ public class Main {
                         }
 
                     }
+                    else if (komento.equals("tuotteet")) {
+                        System.out.println("Tässä on meidän tämän hetkiset tuotteet:");
+                        for (Tuote a : kahvila.getTuote()) {
+                            System.out.println(a.getNimi() + ", " + a.getHinta() + "€");
+                        }
+                    }
                     else if (komento.equals("saldo")) {
                         System.out.println("Sinulla on käytössäsi: " + asiakas.tulostaRaha() + "€");
                     }
                     else if (komento.equals("kirjaudu ulos")) {
                         System.out.println("Kirjaudutaan ulos...");
+                        kysySammutus();
                         break;
                     }
+
                 }
 
             }
