@@ -14,9 +14,9 @@ public class Main {
 
     public static void main(String[] args) {
         Kahvila kahvila = new Kahvila();
-        Kahvila tuotteet = new Kahvila();
+
         Scanner ok = new Scanner(System.in);
-        Iterator iterator = kahvila.tuotteet.iterator();
+
         while (true) {
             System.out.print("Anna käyttäjätunnus: ");
             String tunnus = ok.nextLine();
@@ -28,31 +28,39 @@ public class Main {
                 while (true) {
                     System.out.println("Anna komento: ");
                     String komento = ok.nextLine();
-                    if (komento.equals("Lisää")) {
+
+                    if (komento.equals("lisää")) {
                         System.out.print("Anna tuotteen nimi: ");
                         String sana = ok.nextLine();
                         System.out.print("Anna tuotteen hinta: ");
                         int hinta = Integer.parseInt(ok.nextLine());
                         Tuote ast = new Tuote(sana, hinta);
-                        tuotteet.LisaaTuote(ast);
-                        for (Tuote kaynti : tuotteet.getTuote()) {
+                        kahvila.LisaaTuote(ast);
+                        for (Tuote kaynti : kahvila.getTuote()) {
                             System.out.println(kaynti.getNimi() + ", hinta " + kaynti.getHinta() + " e");
                         }
-                    } else if (komento.equals("Poista")) {
+
+                    }
+
+                    else if (komento.equals("listaa")) {
+                        System.out.println("Tässä tämän hetkiset tuotteet: ");
+                        for (Tuote a : kahvila.getTuote()) {
+                            System.out.println(a.getNimi() + ", hinta " + a.getHinta() + " e");
+                        }
+                    }
+
+                    else if (komento.equals("poista")) {
                         System.out.println("Minkä tuotteen seuraaavista tuotteista haluat poistaa?");
                         String poisto = ok.nextLine();
-                       for (Tuote a : kahvila.tuotteet) {
-                           while (iterator.hasNext()) {
-                           }
-                       }
-}
+                        kahvila.poistaTuote(poisto);
 
-                        if (komento.equals("Listaa")) {
-                            System.out.println("Tässä tämän hetkiset tuotteet: ");
-                            for (Tuote a : tuotteet.getTuote()) {
-                                System.out.println(a.getNimi() + ", hinta " + a.getHinta() + " e");
-                            }
+                        System.out.println("Tässä tämän hetkiset tuotteet: ");
+                        for (Tuote a : kahvila.getTuote()) {
+                            System.out.println(a.getNimi() + ", hinta " + a.getHinta() + " e");
                         }
+                    }
+
+
 
 
 
