@@ -38,7 +38,7 @@ public class Main {
                         Tuote ast = new Tuote(sana, hinta);
                         kahvila.LisaaTuote(ast);
                         for (Tuote kaynti : kahvila.getTuote()) {
-                            System.out.println(kaynti.getNimi() + ", hinta " + kaynti.getHinta() + " e");
+                            System.out.println(kaynti.getNimi() + ", hinta " + kaynti.getHinta() + " €");
                         }
 
                     }
@@ -70,10 +70,10 @@ public class Main {
                 }
             }
             else if (tunnus.equals("asiakas") && (salasana.equals("kahvi"))) {
-                Asiakas asiakas = new Asiakas(100);
+                Asiakas asiakas = new Asiakas();
                 System.out.println("Olet kirjautunut asiakkaana!");
                 while (true) {
-                    System.out.println("Komennot: osta, saldo, kirjaudu ulos, tuotteet");
+                    System.out.println("Komennot: osta, saldo, kirjaudu ulos, tuotteet, bonus");
                     String komento = kysyKomento();
                     if (komento.equals("osta")) {
                         System.out.println("Sinulla on käytettävissäsi " + asiakas.tulostaRaha());
@@ -104,6 +104,9 @@ public class Main {
                         kysySammutus();
                         break;
                     }
+                    else if (komento.equals("bonus")) {
+                        System.out.println("Bonuspisteesi: " + asiakas.getBonus());
+                    }
 
                 }
 
@@ -112,15 +115,17 @@ public class Main {
         }
     }
 
-    private static void kysySammutus() {
+        private static void kysySammutus() {
      Scanner ok = new Scanner(System.in) ;
-        System.out.print("Haluatko kirjautua tai sammuttaa ohjelman (sammuta/kirjaudu): ");
-        String joku = ok.nextLine();
-        if (joku.equals("sammuta")) {
-            System.exit(0);
+        while (true) {
+            System.out.print("Haluatko kirjautua tai sammuttaa ohjelman (sammuta/kirjaudu): ");
+            String joku = ok.nextLine();
+            if (joku.equals("sammuta")) {
+                System.exit(0);
+            }
+            else if (joku.equals("kirjaudu")) {break;}
         }
-        else if (joku.equals("kirjaudu")) {}
-    }
+        }
 
 
     public static String kysyKomento() {
