@@ -1,3 +1,5 @@
+
+// Asiakkaan tiedot kuten rahat ja bonuspisteet
 package kahvila;
 import java.util.*;
 public class Asiakas {
@@ -21,8 +23,8 @@ public class Asiakas {
            System.out.print("Oletko varma että haluat ostaa tuotteen " + tuote + ": ");
            String vahvistus = ok.nextLine();
 
-               if (vahvistus.equals("kyllä")) {
-                   if (raha < maksu) {
+           if (vahvistus.equals("kyllä")) {
+               if (raha < maksu) {
                        System.out.println("Tuotetta ei voi ostaa, liian vähän rahaa");
                    } else {
                       this.raha = raha - maksu;

@@ -1,5 +1,5 @@
 package kahvila;
-
+// Tuote luokka
 public class Tuote {
 private String nimi;
 private int hinta;

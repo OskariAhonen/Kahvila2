@@ -1,13 +1,9 @@
 package kahvila;
 
-
-
-
-
 import java.util.*;
 
 public class Kahvila {
-
+    // Tuotteet tallennetaan tänne
     private List<Tuote> tuotteet;
 
     public Kahvila() {
@@ -19,11 +15,11 @@ public class Kahvila {
     public List<Tuote> getTuote() {
         return tuotteet;
     }
-
+        // tuotteet lisääminen
     public void LisaaTuote(Tuote c) {
         tuotteet.add(c);
     }
-
+ // tuotteen poistaminen
     public void poistaTuote(String poistettava) {
 
         int indeksi = -1;
