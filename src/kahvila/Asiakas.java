@@ -2,18 +2,26 @@ package kahvila;
 import java.util.*;
 public class Asiakas {
     private int raha;
-    public int Asiakas(int raha) {
+    public Asiakas(int raha) {
         this.raha = raha;
-        return raha;
+
     }
 
     public int tulostaRaha() {
-        int raha = this.raha;
         return this.raha;
     }
 
-    public void otaRaha(int maksu) {
-        this.raha = this.raha - maksu;
+    public void otaRaha(String tuote, int maksu) {
+        Scanner ok = new Scanner(System.in);
+        System.out.print("Oletko varma että haluat ostaa tuotteen " + tuote);
+        String vahvistus = ok.nextLine();
+        if (vahvistus.equals("kyllä")) {
+            this.raha = this.raha - maksu;
+        }
+        else {
+            System.out.println("Tuotetta ei osteta");
+        }
+
     }
 
 

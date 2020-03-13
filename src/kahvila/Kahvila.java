@@ -24,17 +24,7 @@ public class Kahvila {
     }
 
     public void poistaTuote(String poistettava) {
-/*
-    Iterator iterator = tuotteet.iterator();
-    while (iterator.hasNext()) {
-        Tuote haettava = (Tuote) iterator.next();
-        if (haettava.getNimi().equals(poistettava)) {
-            iterator.remove();
-        }
-    }
 
-
- */
         int indeksi = 0;
         for (Tuote tuote: tuotteet) {
             if (tuote.getNimi().equals(poistettava)) {
@@ -46,12 +36,8 @@ public class Kahvila {
 
     }
 
-    public int getIndex(String poisto) {
-        return tuotteet.indexOf(poisto);
-    }
 
 
-    public int suuri() {
-        return tuotteet.size();
-    }
+
+
 }
