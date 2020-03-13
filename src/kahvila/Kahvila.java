@@ -13,6 +13,7 @@ public class Kahvila {
     public Kahvila() {
         this.tuotteet = new ArrayList<>();
         tuotteet.add(new Tuote("omppu", 1));
+        tuotteet.add(new Tuote("piirakka", 5));
     }
 
     public List<Tuote> getTuote() {

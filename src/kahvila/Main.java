@@ -1,24 +1,17 @@
 package kahvila;
 
-
-
-
 import javax.sound.midi.Soundbank;
 import javax.swing.text.html.HTMLDocument;
 import java.sql.SQLOutput;
 import java.util.*;
 
-
 public class Main {
-
 
     public static void main(String[] args) {
         Kahvila kahvila = new Kahvila();
-
         Scanner ok = new Scanner(System.in);
 
         while (true) {
-
 
             System.out.print("Anna tunnus: ");
             String tunnus = ok.nextLine();
@@ -30,6 +23,7 @@ public class Main {
                 while (true) {
                     System.out.println("Komennot: lisää, listaa, poista, kirjaudu ulos");
                         String komento = kysyKomento();
+
                     if (komento.equals("lisää")) {
                         System.out.print("Anna tuotteen nimi: ");
                         String sana = ok.nextLine();
@@ -37,6 +31,7 @@ public class Main {
                         int hinta = Integer.parseInt(ok.nextLine());
                         Tuote ast = new Tuote(sana, hinta);
                         kahvila.LisaaTuote(ast);
+
                         for (Tuote kaynti : kahvila.getTuote()) {
                             System.out.println(kaynti.getNimi() + ", hinta " + kaynti.getHinta() + " €");
                         }
@@ -45,6 +40,7 @@ public class Main {
 
                     else if (komento.equals("listaa")) {
                         System.out.println("Tässä tämän hetkiset tuotteet: ");
+
                         for (Tuote a : kahvila.getTuote()) {
                             System.out.println(a.getNimi() + ", hinta " + a.getHinta() + " e");
                         }
@@ -57,24 +53,23 @@ public class Main {
 
 
                     }
+
                     else if (komento.equals("kirjaudu ulos")) {
                         System.out.println("kirjaudutaan ulos...");
                         kysySammutus();
                         break;
                     }
 
-
-
-
-
                 }
             }
+
             else if (tunnus.equals("asiakas") && (salasana.equals("kahvi"))) {
                 Asiakas asiakas = new Asiakas();
                 System.out.println("Olet kirjautunut asiakkaana!");
                 while (true) {
                     System.out.println("Komennot: osta, saldo, kirjaudu ulos, tuotteet, bonus");
                     String komento = kysyKomento();
+
                     if (komento.equals("osta")) {
                         System.out.println("Sinulla on käytettävissäsi " + asiakas.tulostaRaha());
                         System.out.println("Tämän henkiset tuotteemme: ");
@@ -115,7 +110,7 @@ public class Main {
         }
     }
 
-        private static void kysySammutus() {
+        public static void kysySammutus() {
      Scanner ok = new Scanner(System.in) ;
         while (true) {
             System.out.print("Haluatko kirjautua tai sammuttaa ohjelman (sammuta/kirjaudu): ");
