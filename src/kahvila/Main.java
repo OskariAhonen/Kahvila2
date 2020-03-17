@@ -9,6 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         Kahvila kahvila = new Kahvila();
+        Asiakas asiakas = new Asiakas();
         Scanner ok = new Scanner(System.in);
 
         while (true) {
@@ -64,7 +65,6 @@ public class Main {
             }
             //Asiakas alkaa
             else if (tunnus.equals("asiakas") && (salasana.equals("kahvi"))) {
-                Asiakas asiakas = new Asiakas();
                 System.out.println("Olet kirjautunut asiakkaana!");
                 while (true) {
                     System.out.println("Komennot: osta, saldo, kirjaudu ulos, tuotteet, bonus");
