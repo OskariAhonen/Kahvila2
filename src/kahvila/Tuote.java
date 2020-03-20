@@ -4,12 +4,14 @@ public class Tuote {
 private String nimi;
 private int hinta;
 
-public Tuote(String nimi, int hinta) {
+public Tuote(String nimi, int input) {
         this.nimi = nimi;
-        this.hinta = hinta;
+        this.hinta = input;
         }
 
-public String getNimi() {
+
+
+    public String getNimi() {
         return this.nimi;
         }
 

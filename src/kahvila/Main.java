@@ -28,15 +28,29 @@ public class Main {
                     if (komento.equals("lisää")) {
                         System.out.print("Anna tuotteen nimi: ");
                         String sana = ok.nextLine();
+                        while (true) {
                         System.out.print("Anna tuotteen hinta: ");
-                        int hinta = Integer.parseInt(ok.nextLine());
-                        Tuote ast = new Tuote(sana, hinta);
-                        kahvila.LisaaTuote(ast);
+                        String input = ok.nextLine();
 
-                        for (Tuote kaynti : kahvila.getTuote()) {
-                            System.out.println(kaynti.getNimi() + ", hinta " + kaynti.getHinta() + " €");
+
+                            try {
+                                // checking valid integer using parseInt() method
+                                Integer.parseInt(input);
+
+
+                            } catch (NumberFormatException e) {
+                                System.out.println(input + " Kokeile uudestaan");
+                            }
+
+                            int k = Integer.parseInt(input);
+                            Tuote ast = new Tuote(sana, k);
+                            kahvila.LisaaTuote(ast);
+
+                            for (Tuote kaynti : kahvila.getTuote()) {
+                                System.out.println(kaynti.getNimi() + ", hinta " + kaynti.getHinta() + " €");
+                            }
+                            break;
                         }
-
                     }
                     // Listaa listalla olevat tuotteet
                     else if (komento.equals("listaa")) {
@@ -75,6 +89,7 @@ public class Main {
                         System.out.println("Tämän henkiset tuotteemme: ");
                         for (Tuote a : kahvila.getTuote()) {
                             System.out.println(a.getNimi() + ", " + a.getHinta() + "€");
+
                         }
                         System.out.print("Minkä haluat ostaa: ");
                         String ostettava = ok.nextLine();
