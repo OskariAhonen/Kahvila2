@@ -65,7 +65,7 @@ public class Main {
             }
             //Asiakas alkaa
             else if (tunnus.equals("asiakas") && (salasana.equals("kahvi"))) {
-                System.out.println("Olet kirjautunut asiakkaana!");
+                System.out.println("Olette kirjautunut asiakkaana!");
                 while (true) {
                     System.out.println("Komennot: osta, saldo, kirjaudu ulos, tuotteet, bonus");
                     String komento = kysyKomento();
