@@ -21,7 +21,7 @@ public class Asiakas {
        while (true) {
         Scanner ok = new Scanner(System.in);
         if (bonus < 10) {
-            System.out.print("Oletko varma että haluat ostaa tuotteen " + tuote + " k/e: ");
+            System.out.print("Oletko varma että haluat ostaa tuotteen " + tuote + " (k/e): ");
             String vahvistus = ok.nextLine();
 
             if (vahvistus.equals("k")) {
@@ -41,14 +41,14 @@ public class Asiakas {
                 System.out.println("Anna kelvollinen vastaus");
             }
         } else if (bonus == 10) {
-            System.out.print("Haluatko käyttää 10 bonuspistettä saadaksesi tuotteen ilmaiseksi k/e: ");
+            System.out.print("Haluatko käyttää 10 bonuspistettä saadaksesi tuotteen ilmaiseksi (k/e): ");
             String b = ok.nextLine();
             if (b.equals("k")) {
                 System.out.println("Tuote ostetiin!");
                 bonus = bonus - 10;
                 break;
             } else if (b.equals("e")) {
-                System.out.print("Oletko varma että haluat ostaa tuotteen rahoillasi k/e: " + tuote + ": ");
+                System.out.print("Oletko varma että haluat ostaa tuotteen rahoillasi (k/e): " + tuote + ": ");
                 String vahvistus = ok.nextLine();
                 if (vahvistus.equals("k")) {
                     if (raha < maksu) {

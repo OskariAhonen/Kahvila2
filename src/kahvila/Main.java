@@ -28,29 +28,24 @@ public class Main {
                     if (komento.equals("lisää")) {
                         System.out.print("Anna tuotteen nimi: ");
                         String sana = ok.nextLine();
-                        while (true) {
-                        System.out.print("Anna tuotteen hinta: ");
-                        String input = ok.nextLine();
+                       while (true) {
+                           System.out.print("Anna tuotteen hinta: ");
+                           String input = ok.nextLine();
+                           try {
+
+                               int i = Integer.parseInt(input);
+                               Tuote ast = new Tuote(sana, i);
+                               kahvila.LisaaTuote(ast);
+                                break;
+                           } catch (NumberFormatException e) {
+                               System.out.println("Anna kelvollinen vastaus!");
+                           }
+                       }
 
 
-                            try {
-                                // checking valid integer using parseInt() method
-                                Integer.parseInt(input);
 
 
-                            } catch (NumberFormatException e) {
-                                System.out.println(input + " Kokeile uudestaan");
-                            }
 
-                            int k = Integer.parseInt(input);
-                            Tuote ast = new Tuote(sana, k);
-                            kahvila.LisaaTuote(ast);
-
-                            for (Tuote kaynti : kahvila.getTuote()) {
-                                System.out.println(kaynti.getNimi() + ", hinta " + kaynti.getHinta() + " €");
-                            }
-                            break;
-                        }
                     }
                     // Listaa listalla olevat tuotteet
                     else if (komento.equals("listaa")) {
